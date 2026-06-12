@@ -10,4 +10,11 @@ case "$1" in
   create_local_data)
     python3 generator/generate.py local_data
     ;;
+  build_reporter)
+    docker build -t hw3-reporter reporter
+    ;;
+  run_reporter)
+    mkdir -p data
+    docker run --rm -v "$(pwd)/data:/data" hw3-reporter
+    ;;
 esac
