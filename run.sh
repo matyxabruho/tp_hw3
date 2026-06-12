@@ -17,4 +17,16 @@ case "$1" in
     mkdir -p data
     docker run --rm -v "$(pwd)/data:/data" hw3-reporter
     ;;
+  structure)
+    ls -R
+    ;;
+  clear_data)
+    rm -f data/*.csv data/*.html
+    ;;
+  inside_generator)
+    docker run --rm -v "$(pwd)/data:/data" hw3-generator ls -la /data
+    ;;
+  inside_reporter)
+    docker run --rm -v "$(pwd)/data:/data" hw3-reporter ls -la /data
+    ;;
 esac
